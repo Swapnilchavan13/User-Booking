@@ -104,12 +104,10 @@ export const Home = () => {
             <h1>Welcome, {user.name}!</h1>
             <h4>Location: {user.location}</h4>
             <h4>Cinema`s name: {user.name}</h4>
-
             <h3>Select a date:</h3>
             <div className="date-buttons">
                 {dateButtons}
             </div>
-
             {selectedDate && (
                 <div>
                     <h2>Movies on {formatDate(selectedDate)} in {user.name}:</h2>
