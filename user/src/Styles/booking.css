@@ -1,0 +1,232 @@
+/* Default styles for larger screens */
+
+.seats div {
+    width: fit-content;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid black;
+  }
+  
+  .seats {
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+}
+.seats >div{
+      /* background-color: teal; */
+      width: fit-content;
+      text-align: center;
+  }
+  
+  .seatindication {
+    width: fit-content;
+    padding-left: 200px;
+  }
+  
+  .column {
+    display: flex;
+    gap: 60px;
+    text-align: center;
+  }
+  
+  .selected {
+    background-color: green;
+    color: white;
+  }
+ 
+  .seat-row{
+    display: flex;
+    gap: 3px;
+    margin: auto;
+  }
+  
+  .booked {
+    background-color: rgb(184, 7, 7);
+    color: white;
+    pointer-events: none;
+  }  
+  .selectdate{
+    border: 1px solid rgb(88, 87, 87);
+    padding: 30px;
+  }
+  
+  .selectshow{
+    border: 1px solid rgb(88, 87, 87);
+    padding: 30px;
+  }
+  
+  .show{
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  width: fit-content;
+  }
+  
+  .dateandshow{
+    width: fit-content;
+    padding: 50px;
+    margin: auto;
+    gap: 20px;
+    text-align: center;
+    border: 3px solid black;
+  }
+
+  #scr{
+    border: 5px solid rgb(190, 6, 6);
+    width: 350px;
+    height: 20px;
+    font-weight: bolder;
+  }
+ 
+  .deselected {
+    background-color: transparent;
+    color: black;
+  }
+
+  .bs{
+    border: 1px solid black;
+    background-color: rgb(184, 7, 7);
+  }
+  .as{
+    border: 1px solid black;
+  }
+  #bdiv{
+    /* width: 100%; */
+    text-align: left;
+    margin-left: 0;
+  }
+  
+  /* Mobile-responsive styles */
+  
+  @media screen and (max-width: 680px) {
+  
+    .seats {
+      margin: auto;
+      text-align: center;
+      justify-content: center;
+      width: fit-content;
+    }
+    .seats .column{
+      width: fit-content;
+    }
+    
+    #c3{
+      width: 94%;
+    }
+  
+    .book{
+      width: 30px;
+      height: 30px;
+    }
+  
+    .available{
+      width: 30px;
+      height: 30px;
+    }
+  
+    .seats div {
+      width: fit-content;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      margin: auto;
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 1px solid black;
+    }
+  
+    .column {
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    img{
+      text-align: center;
+      justify-content: center;
+      width: 48%;
+      width: 100%;
+    }
+  
+    .seatindication {
+      padding-left: 0;
+    }
+  
+    .screen {
+      text-align: center;
+      margin: auto;
+      width: 98%;
+    }
+  
+    .column{
+      height: 40px;
+      gap:8px;
+      width: 300px;
+    }
+  
+    .column div{
+      width: 10px;
+      height: 15px;
+      text-align: center;
+      font-size: 13px;
+      gap: 5px;
+    }
+  
+    .bookbutton {
+      width: auto;
+      border-radius: 10px;
+      font-size: 20px;
+      color: black;
+      background-color: rgb(138, 233, 138);
+      padding: 7px;
+    }
+
+    table {
+      font-size: 14px;
+    }
+  
+    th,
+    td {
+      padding: 6px;
+    }
+  
+    .selectshow{
+      border: 1px solid rgb(88, 87, 87);
+      padding: 30px;
+      width: 150px;
+    }
+    .isBooked{
+        background-color: blue;
+    }
+    
+    .dateandshow{
+      width: 90%;
+      padding: 10px;
+      /* width: fit-content; */
+      border: 3px solid black;
+
+      border-radius: 10px;
+    }
+    .selectshow{
+      width: 82%;
+      padding-top: 0px;
+      /* border: 1px solid red; */
+    }
+    #datePicker{
+      width: 98%;
+    }  
+    .selected-seats{
+      border: 2px solid black;
+      border-radius: 10px;
+      width: 99%;
+    }
+  
+    .select{
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+      text-align: center;
+      justify-content: center;
+    }
+  }
