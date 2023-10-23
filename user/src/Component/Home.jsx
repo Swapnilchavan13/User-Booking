@@ -9,9 +9,7 @@ export const Home = () => {
     const [authenticated, setAuthenticated] = useState(false); // Initialize as not authenticated
     const [movie, setMovie] = useState([]);
 
-    
     const user = {"_id":"6536348f41c8d04b61343522","location":"Mumbai","loginid":"user1","name":"Cinemass Cinema","password":"1234","rows":[{"option":"A","seats":6,"_id":"6536348f41c8d04b61343523"},{"option":"B","seats":7,"_id":"6536348f41c8d04b61343524"},{"option":"C","seats":8,"_id":"6536348f41c8d04b61343525"}],"__v":0}
-    
     
     useEffect(() => {
         // Fetch data from your API endpoint
