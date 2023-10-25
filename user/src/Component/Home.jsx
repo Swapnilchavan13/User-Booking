@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../Styles/home.css';
 import { Booking } from './Booking';
 
 export const Home = () => {
@@ -6,10 +7,25 @@ export const Home = () => {
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [selectedShowtime, setSelectedShowtime] = useState(null);
-    const [authenticated, setAuthenticated] = useState(false); // Initialize as not authenticated
     const [movie, setMovie] = useState([]);
+    // const [user, setUser] = useState(null);
+    const [add, setAdd] = useState('');
+  
+    useEffect(() => {
+      navigator.geolocation.getCurrentPosition(pos=>{
+        const {latitude, longitude} = pos.coords;
+        // console.log(latitude,longitude)
+        const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
+     fetch(url).then(res=>res.json()).then(data => setAdd(data.address))
+    })
+    }, []);
 
-    const user = {"_id":"6536348f41c8d04b61343522","location":"Mumbai","loginid":"user1","name":"Cinemass Cinema","password":"1234","rows":[{"option":"A","seats":6,"_id":"6536348f41c8d04b61343523"},{"option":"B","seats":7,"_id":"6536348f41c8d04b61343524"},{"option":"C","seats":8,"_id":"6536348f41c8d04b61343525"}],"__v":0}
+    // console.log(add)
+  
+   
+      
+
+    const user = { "_id":"6536348f41c8d04b61343522","location":"Mumbai","loginid":"user1","name":"Cinemass Cinema","password":"1234","rows":[{"option":"A","seats":6,"_id":"6536348f41c8d04b61343523"},{"option":"B","seats":7,"_id":"6536348f41c8d04b61343524"},{"option":"C","seats":8,"_id":"6536348f41c8d04b61343525"}],"__v":0}
     
     useEffect(() => {
         // Fetch data from your API endpoint
@@ -21,15 +37,22 @@ export const Home = () => {
             .catch((error) => {
                 console.error('Error fetching movie data:', error);
             });
-    }, []);
+    }, [])
 
     useEffect(() => {
-        // Check if the user is already authenticated on component mount
-        const isAuthenticated = localStorage.getItem('authenticated') === 'true';
-        if (isAuthenticated) {
-            setAuthenticated(true);
-        }
+        // Fetch data from your API endpoint
+        fetch('http://62.72.59.146:3005/theatredata')
+            .then((response) => response.json())
+            .then((data) => {
+                // setUser(data[1]);
+            })
+            .catch((error) => {
+                console.error('Error fetching movie data:', error);
+            });
+    }, [])
+    
 
+    useEffect(() => {
         // Fetch data from your API endpoint
         fetch('http://62.72.59.146:3005/allocatedata')
             .then((response) => response.json())
@@ -67,6 +90,7 @@ export const Home = () => {
     // Filter out dates less than today's date
     const currentDate = new Date();
     currentDate.setDate(currentDate.getDate() - 1);
+
     const dateButtons = movieData
         .filter((movie) => new Date(movie.date) >= currentDate)
         .map((movie) => {
@@ -104,6 +128,8 @@ export const Home = () => {
             <h1>Welcome, {user.name}!</h1>
             <h4>Location: {user.location}</h4>
             <h4>Cinema`s name: {user.name}</h4>
+            <h4>Current City: {add.city}</h4>
+            <h5>Address: {add.road}, {add.neighbourhood}, {add.amenity}, {add.postcode}</h5>
             <h3>Select a date:</h3>
             <div className="date-buttons">
                 {dateButtons}
@@ -163,7 +189,6 @@ export const Home = () => {
                                 );
                             })}
                     </div>
-
                     <Booking
                         selectedMovie={selectedMovie}
                         movie={movie}
