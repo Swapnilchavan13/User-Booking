@@ -19,9 +19,9 @@ export const Home = () => {
      fetch(url).then(res=>res.json()).then(data => setAdd(data.address))
     })
     }, []);
-
     // console.log(add)
-  
+
+    
     const user = { "_id":"6536348f41c8d04b61343522","location":"Mumbai","loginid":"user1","name":"Cinemass Cinema","password":"1234","rows":[{"option":"A","seats":6,"_id":"6536348f41c8d04b61343523"},{"option":"B","seats":7,"_id":"6536348f41c8d04b61343524"},{"option":"C","seats":8,"_id":"6536348f41c8d04b61343525"}],"__v":0}
     
     useEffect(() => {
